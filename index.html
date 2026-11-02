@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#11202E">
+<title>Proline Logistics · Tableau de bord LinkedIn</title>
+<link rel="icon" href="assets/logo-proline.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#11202E; --nuit-2:#0B1620; --acier:#3A5A72; --orange:#EE5B22; --orange-deep:#E9510E;
+  --fond:#F4F6F8; --blanc:#fff; --texte:#1B2733; --gris:#5E6B77; --filet:#E2E7EC;
+  --vert:#1F8A5B; --ambre:#C98A10; --ex:#8A96A3;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--texte);background:var(--fond);line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:var(--orange-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,.kpi .v,.num{font-family:"Space Grotesk",Inter,sans-serif}
+
+/* En-tête */
+header.top{background:var(--nuit);color:#fff;position:relative;overflow:hidden}
+header.top::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F47A3E,var(--orange) 55%,#C9430F);opacity:.18}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+.logo{background:#fff;border-radius:10px;padding:6px 10px;display:inline-flex}
+.logo img{height:34px;display:block}
+.toplinks{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.btn{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.06)}
+.btn:hover{background:rgba(255,255,255,.14);text-decoration:none}
+.btn.pri{background:var(--orange);border-color:var(--orange)}
+.btn.pri:hover{background:var(--orange-deep)}
+.btn svg{width:15px;height:15px}
+.hero{padding:18px 0 30px;position:relative;z-index:1}
+.eyebrow{font-family:"Space Grotesk";letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:#F5A27F;font-weight:600}
+.hero h1{margin:6px 0 8px;font-size:clamp(26px,4vw,40px);line-height:1.1}
+.hero p{margin:0;color:#C9D3DC;max-width:760px}
+.legende{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:#DCE3EA}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot.reel{background:var(--orange)}
+.dot.ex{background:transparent;border:2px dashed #B9C4CE}
+
+/* Bandeau d'avertissement */
+.alerte{background:#FFF4EC;border:1px solid #F8C9B1;color:#7A2E0E;border-radius:var(--r);padding:12px 16px;font-size:14px;display:flex;gap:10px;align-items:flex-start;margin:-16px 0 18px;position:relative;z-index:2;box-shadow:0 6px 18px rgba(17,32,46,.06)}
+.alerte b{color:var(--orange-deep)}
+
+/* Filtres */
+.filtres{position:sticky;top:0;z-index:20;background:rgba(244,246,248,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--filet);margin:0 -20px 18px;padding:10px 20px}
+.filtres .in{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filtres label{font-size:12px;font-weight:600;color:var(--gris);text-transform:uppercase;letter-spacing:.06em}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--filet);background:#fff;border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--texte);font-family:inherit}
+.chip[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
+.sep{width:1px;height:24px;background:var(--filet);margin:0 4px}
+.toggle{display:inline-flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-left:auto}
+.toggle input{accent-color:var(--orange);width:16px;height:16px}
+
+/* Cartes chiffres */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:#fff;border-radius:var(--r);padding:14px 14px 12px;border:1px solid var(--filet);position:relative;min-height:128px;display:flex;flex-direction:column}
+.kpi.reel{border-top:4px solid var(--orange)}
+.kpi.ex{border-top:4px dashed var(--ex);background:repeating-linear-gradient(135deg,#fff 0 12px,#FAFBFC 12px 24px)}
+.kpi .l{font-size:12.5px;color:var(--gris);font-weight:600}
+.kpi .v{font-size:30px;font-weight:700;margin:6px 0 2px;color:var(--nuit)}
+.kpi.ex .v{color:var(--ex)}
+.kpi .n{font-size:12px;color:var(--gris);margin-top:auto}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:2px 7px;vertical-align:middle}
+.badge.ex{background:#EEF1F4;color:#5E6B77;border:1px dashed #A9B4BF}
+.badge.reel{background:#FDEBE3;color:var(--orange-deep)}
+.kpi .badge{align-self:flex-start;margin-bottom:6px}
+
+/* Grilles */
+.grid{display:grid;gap:16px;margin-bottom:16px}
+.g2{grid-template-columns:1.35fr 1fr}
+.g2b{grid-template-columns:1fr 1fr}
+.card{background:#fff;border:1px solid var(--filet);border-radius:var(--r);padding:18px;min-width:0}
+.card h2{font-size:18px;margin:0 0 2px;color:var(--nuit)}
+.card .sub{font-size:13px;color:var(--gris);margin:0 0 14px}
+.card .head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.compte{white-space:nowrap}
+.chartbox{position:relative;height:280px}
+
+/* Objectifs */
+.obj{display:grid;gap:14px}
+.obj .row .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px;gap:8px}
+.obj .row .t b{font-family:"Space Grotesk"}
+.track{height:12px;background:#EEF1F4;border-radius:99px;overflow:hidden;position:relative}
+.fill{height:100%;background:linear-gradient(90deg,var(--orange),#F48A5A);border-radius:99px;transition:width .6s}
+.fill.ex{background:repeating-linear-gradient(135deg,#B9C4CE 0 6px,#D3DAE1 6px 12px)}
+.obj .meta{font-size:12px;color:var(--gris);margin-top:4px}
+
+/* Tableau posts */
+.tablewrap{overflow-x:auto;margin:0 -4px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--gris);text-align:left;padding:10px 8px;border-bottom:2px solid var(--filet);white-space:nowrap;cursor:pointer;user-select:none}
+th .ar{opacity:.4;font-size:10px}
+td{padding:11px 8px;border-bottom:1px solid var(--filet);vertical-align:middle}
+tr:hover td{background:#FAFBFC}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.st.pret{background:#E6F4EC;color:var(--vert)}
+.st.a_rediger{background:#FFF4DC;color:#8A5D00}
+.st.publie{background:#E7EEF6;color:var(--acier)}
+.pil{font-size:12.5px;font-weight:600;color:var(--nuit);background:#EEF1F4;border-radius:6px;padding:2px 8px;white-space:nowrap}
+.lnk{display:inline-flex;align-items:center;gap:5px;font-weight:600;font-size:13px;white-space:nowrap}
+.lnk svg{width:14px;height:14px}
+.num{font-weight:700;text-align:right}
+.num.ex{color:var(--ex);font-weight:600}
+.titre{font-weight:600;color:var(--nuit)}
+.m-only{display:none}
+@media (max-width:620px){.m-only{display:inline}}
+.vide{color:var(--gris);font-style:italic;padding:18px 8px}
+.compte{font-size:13px;color:var(--gris)}
+
+/* Concurrents */
+.conc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.cc{border:1px solid var(--filet);border-radius:12px;padding:12px}
+.cc.nous{border-color:var(--orange);background:#FFF8F4}
+.cc .nm{font-family:"Space Grotesk";font-weight:700;color:var(--nuit)}
+.cc .ab{font-family:"Space Grotesk";font-size:22px;font-weight:700;margin:4px 0 0}
+.cc .rs{font-size:11.5px;color:var(--gris)}
+.cc .rt{font-size:13px;margin-top:6px}
+.cc .lc{font-size:12.5px;color:var(--gris);margin-top:6px}
+
+footer{color:var(--gris);font-size:12.5px;padding:24px 0 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--filet);padding-top:16px}
+
+@media (max-width:1080px){.kpis{grid-template-columns:repeat(3,1fr)}.conc{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.g2,.g2b{grid-template-columns:1fr}}
+@media (max-width:620px){
+  .kpis{grid-template-columns:repeat(2,1fr);gap:10px}
+  .kpi{min-height:118px;padding:12px}
+  .kpi .v{font-size:25px}
+  .bar{flex-direction:column;align-items:flex-start}
+  .toggle{margin-left:0}
+  .sep{display:none}
+  .chartbox{height:240px}
+  .col-heure,.col-sem{display:none}
+  #t-posts thead{display:none}
+  #t-posts tr{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:12px 4px;border-bottom:1px solid var(--filet)}
+  #t-posts td{border:0;padding:0;background:none!important}
+  #t-posts td.titre{grid-column:1 / -1;font-size:15px}
+  #t-posts td.c-date{grid-column:1 / -1;font-size:12.5px;color:var(--gris);font-weight:600}
+  #t-posts td.vide{grid-column:1 / -1}
+  .hero h1{font-size:25px}
+  .conc{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <a class="logo" id="lien-logo" href="#" target="_blank" rel="noopener" aria-label="Site Proline Logistics"><img src="assets/logo-proline.png" alt="Proline Logistics"></a>
+      <nav class="toplinks">
+        <a class="btn pri" id="lien-linkedin" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg>Page LinkedIn</a>
+        <a class="btn" id="lien-site" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>prolinelogistic.com</a>
+        <a class="btn" id="lien-audit" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/></svg>Audit réseaux sociaux</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <div class="eyebrow">Tableau de bord LinkedIn · novembre 2026</div>
+      <h1>Proline Logistics, de 0 à 12 publications</h1>
+      <p>Le suivi de la page LinkedIn semaine par semaine : abonnés, réactions, calendrier éditorial et position face aux logisticiens d'Abidjan. Mis à jour le <span id="maj">…</span>.</p>
+      <div class="legende">
+        <span><i class="dot reel"></i>Chiffre réel, relevé sur la page publique</span>
+        <span><i class="dot ex"></i>Exemple, en attendant l'accès administrateur de la page</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="alerte" id="alerte"><span>⚠</span><div><b>Les valeurs grisées et marquées « exemple » ne sont pas des mesures.</b> Elles montrent comment la page se remplira. Réactions, taux d'engagement et visites ne se lisent qu'avec l'accès administrateur de la page LinkedIn ; les demandes de devis et de visite se comptent dans la boîte mail commerciale.</div></div>
+
+  <div class="filtres">
+    <div class="in">
+      <label>Semaine</label>
+      <div class="chips" id="f-semaine"></div>
+      <span class="sep"></span>
+      <label>Pilier</label>
+      <div class="chips" id="f-pilier"></div>
+      <label class="toggle"><input type="checkbox" id="f-ex" checked> Afficher les exemples</label>
+    </div>
+  </div>
+
+  <section class="kpis" id="kpis" aria-label="Chiffres clés"></section>
+
+  <div class="grid g2">
+    <section class="card">
+      <div class="head"><div><h2>Abonnés et réactions par semaine</h2><p class="sub">Trait plein : relevé réel. Pointillé : exemple.</p></div></div>
+      <div class="chartbox"><canvas id="c-semaines"></canvas></div>
+    </section>
+    <section class="card">
+      <div class="head"><div><h2>Objectif à 30 jours</h2><p class="sub">Fixé dans l'audit : 8 publications, 20 réactions médianes.</p></div></div>
+      <div class="obj" id="objectifs"></div>
+    </section>
+  </div>
+
+  <div class="grid g2b">
+    <section class="card">
+      <div class="head"><div><h2>Par pilier éditorial</h2><p class="sub">Posts prévus en novembre et part visée par la ligne éditoriale. Réactions médianes : exemple.</p></div></div>
+      <div class="chartbox"><canvas id="c-piliers"></canvas></div>
+    </section>
+    <section class="card">
+      <div class="head"><div><h2>Avancement du calendrier</h2><p class="sub">Statut des posts retenus par les filtres.</p></div></div>
+      <div class="chartbox"><canvas id="c-statuts"></canvas></div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-bottom:16px">
+    <div class="head">
+      <div><h2>Calendrier de novembre 2026</h2><p class="sub">Mardi, mercredi et jeudi à 8 h 30. Cliquer un en-tête pour trier ; le lien ouvre la page LinkedIn (puis le post, une fois publié).</p></div>
+      <span class="compte" id="compte"></span>
+    </div>
+    <div class="tablewrap">
+      <table id="t-posts">
+        <thead><tr>
+          <th data-k="date">Date <span class="ar">↕</span></th>
+          <th class="col-heure">Heure</th>
+          <th class="col-sem" data-k="semaine">Sem. <span class="ar">↕</span></th>
+          <th data-k="titre">Post <span class="ar">↕</span></th>
+          <th data-k="pilier">Pilier <span class="ar">↕</span></th>
+          <th data-k="statut">Statut <span class="ar">↕</span></th>
+          <th>Lien</th>
+          <th data-k="reac" style="text-align:right">Réactions <span class="ar">↕</span></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" style="margin-bottom:16px">
+    <div class="head"><div><h2>Face aux concurrents</h2><p class="sub" id="conc-src"></p></div></div>
+    <div class="grid g2b" style="margin:0">
+      <div class="chartbox"><canvas id="c-conc-ab"></canvas></div>
+      <div class="chartbox"><canvas id="c-conc-rythme"></canvas></div>
+    </div>
+    <div class="conc" id="conc"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Proline Logistics · Abidjan · <a id="lien-mail" href="#">info@prolinelogistic.com</a></span>
+    <span>Chiffres réels : pages publiques relevées le 28/10/2026 et le 02/11/2026. Données : <a href="data/donnees.json" target="_blank" rel="noopener">fichier de mise à jour</a>.</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script>
+(function(){
+const fmt = n => n==null ? "–" : Number(n).toLocaleString("fr-FR");
+const fmt1 = n => Number(n).toLocaleString("fr-FR",{maximumFractionDigits:1});
+const ST = {pret:"Prêt", a_rediger:"À rédiger", publie:"Publié"};
+const ICO_LI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg>';
+const C = {nuit:"#11202E", orange:"#EE5B22", acier:"#3A5A72", ex:"#9AA6B2", vert:"#1F8A5B", ambre:"#D9A21B", filet:"#E2E7EC"};
+let D, state = {semaine:"tout", pilier:"tout", ex:true, tri:{k:"date",dir:1}}, charts = {};
+
+Chart.defaults.font.family = "Inter, system-ui, sans-serif";
+Chart.defaults.color = "#5E6B77";
+Chart.defaults.plugins.legend.labels.boxWidth = 12;
+
+fetch("data/donnees.json?v=" + Date.now()).then(r => r.json()).then(d => { D = d; init(); })
+  .catch(() => { document.getElementById("kpis").innerHTML = '<div class="card">Le fichier de données est introuvable.</div>'; });
+
+function init(){
+  const L = D.liens;
+  document.getElementById("maj").textContent = D.mise_a_jour;
+  ["lien-linkedin"].forEach(id => document.getElementById(id).href = L.page_linkedin);
+  document.getElementById("lien-site").href = L.site;
+  document.getElementById("lien-logo").href = L.site;
+  document.getElementById("lien-audit").href = L.audit;
+  document.getElementById("lien-mail").href = L.contact;
+  if (D.acces_administrateur) document.getElementById("alerte").style.display = "none";
+  document.getElementById("conc-src").textContent = D.concurrents_source;
+
+  const sems = [{v:"tout",t:"Tout le mois"}].concat(["S1","S2","S3","S4"].map((s,i)=>({v:s,t:"Semaine "+(i+1)})));
+  chips("f-semaine", sems, "semaine");
+  chips("f-pilier", [{v:"tout",t:"Tous"}].concat(D.piliers.map(p=>({v:p.nom,t:p.nom}))), "pilier");
+  document.getElementById("f-ex").addEventListener("change", e => { state.ex = e.target.checked; render(); });
+  document.querySelectorAll("#t-posts th[data-k]").forEach(th => th.addEventListener("click", () => {
+    const k = th.dataset.k; state.tri = {k, dir: state.tri.k===k ? -state.tri.dir : 1}; table();
+  }));
+  render();
+}
+
+function chips(id, items, key){
+  const el = document.getElementById(id);
+  el.innerHTML = items.map(i => `<button class="chip" data-v="${i.v}" aria-pressed="${state[key]===i.v}">${i.t}</button>`).join("");
+  el.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if(!b) return;
+    state[key] = b.dataset.v;
+    el.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.v===state[key]));
+    render();
+  });
+}
+
+const posts = () => D.posts.filter(p => (state.semaine==="tout"||p.semaine===state.semaine) && (state.pilier==="tout"||p.pilier===state.pilier));
+const reac = p => p.reactions!=null ? {v:p.reactions, reel:true} : {v:p.reactions_exemple, reel:false};
+const median = a => { if(!a.length) return null; const s=[...a].sort((x,y)=>x-y), m=Math.floor(s.length/2); return s.length%2 ? s[m] : (s[m-1]+s[m])/2; };
+
+function render(){ kpis(); objectifs(); table(); chartSemaines(); chartPiliers(); chartStatuts(); concurrents(); }
+
+function kpi(l, v, reel, n){
+  const show = reel || state.ex;
+  return `<div class="kpi ${reel?"reel":"ex"}"><span class="badge ${reel?"reel":"ex"}">${reel?"Réel":"Exemple"}</span>
+    <div class="l">${l}</div><div class="v">${show? v : "–"}</div><div class="n">${show? n : "À mesurer avec l'accès administrateur"}</div></div>`;
+}
+function kpis(){
+  const K = D.chiffres_cles, P = posts();
+  const publies = P.filter(p=>p.statut==="publie").length;
+  const reacs = P.map(reac);
+  const med = median(reacs.map(r=>r.v));
+  const medReel = reacs.length && reacs.every(r=>r.reel);
+  const filtre = state.semaine!=="tout"||state.pilier!=="tout";
+  document.getElementById("kpis").innerHTML = [
+    kpi("Abonnés LinkedIn", fmt(K.abonnes.valeur), K.abonnes.reel, K.abonnes.note),
+    kpi("Publications du mois", `${publies} <small style="font-size:15px;color:#5E6B77">/ ${P.length}</small>`, true, filtre ? "Publiées sur les posts filtrés" : "Publiées sur 12 prévues ; aucune relevée sur 6 mois au 28/10"),
+    kpi("Réactions médianes", med==null?"–":fmt1(med), medReel, medReel ? "Médiane des posts publiés" : "Exemple : lisible après publication, objectif 20"),
+    kpi("Taux d'engagement", fmt1(K.taux_engagement.valeur)+" %", K.taux_engagement.reel, K.taux_engagement.note),
+    kpi("Demandes de devis", fmt(K.demandes_devis.valeur), K.demandes_devis.reel, K.demandes_devis.note),
+    kpi("Demandes de visite", fmt(K.demandes_visite.valeur), K.demandes_visite.reel, K.demandes_visite.note)
+  ].join("");
+}
+
+function objectifs(){
+  document.getElementById("objectifs").innerHTML = D.objectifs_30_jours.map(o => {
+    const show = o.reel || state.ex;
+    const base = o.depart || 0;
+    const pctW = show ? Math.max(0, Math.min(100, ((o.actuel-base)/(o.cible-base))*100)) : 0;
+    return `<div class="row"><div class="t"><span>${o.libelle} <span class="badge ${o.reel?"reel":"ex"}">${o.reel?"Réel":"Exemple"}</span></span><b>${show?fmt(o.actuel):"–"} / ${fmt(o.cible)}</b></div>
+      <div class="track"><div class="fill ${o.reel?"":"ex"}" style="width:${pctW}%"></div></div>
+      <div class="meta">Départ : ${o.depart==null?"non mesuré":fmt(o.depart)} · ${show?Math.round(pctW)+" % du chemin":"à mesurer"}</div></div>`;
+  }).join("");
+}
+
+function table(){
+  const P = posts().slice(), {k,dir} = state.tri, order = {pret:1,a_rediger:2,publie:0};
+  P.sort((a,b) => {
+    let x,y;
+    if(k==="reac"){x=reac(a).v;y=reac(b).v} else if(k==="statut"){x=order[a.statut];y=order[b.statut]} else {x=a[k];y=b[k]}
+    return (x>y?1:x<y?-1:0)*dir;
+  });
+  const L = D.liens.page_linkedin.replace(/\/$/,"") + "/posts/";
+  document.querySelector("#t-posts tbody").innerHTML = P.length ? P.map(p => {
+    const r = reac(p), url = p.lien || L;
+    const rv = r.reel ? `<span class="num">${fmt(r.v)}</span>` : (state.ex ? `<span class="num ex">${fmt(r.v)}</span> <span class="badge ex">ex.</span>` : `<span class="num ex">–</span>`);
+    return `<tr><td class="c-date">${p.jour}<span class="m-only"> · ${p.heure} · ${p.semaine}</span></td><td class="col-heure">${p.heure}</td><td class="col-sem">${p.semaine}</td>
+      <td class="titre">${p.titre}</td><td><span class="pil">${p.pilier}</span></td>
+      <td><span class="st ${p.statut}">${ST[p.statut]}</span></td>
+      <td><a class="lnk" href="${url}" target="_blank" rel="noopener">${ICO_LI}${p.lien?"Voir le post":"Page"}</a></td>
+      <td style="text-align:right;white-space:nowrap">${rv}</td></tr>`;
+  }).join("") : `<tr><td colspan="8" class="vide">Aucun post pour ce filtre.</td></tr>`;
+  const n = P.length, pr = P.filter(p=>p.statut==="pret").length;
+  document.getElementById("compte").textContent = `${n} post${n>1?"s":""} · ${pr} prêt${pr>1?"s":""}`;
+}
+
+function mk(id, cfg){ if(charts[id]) charts[id].destroy(); charts[id] = new Chart(document.getElementById(id), cfg); }
+
+function chartSemaines(){
+  let S = D.semaines;
+  if(state.semaine!=="tout") S = S.filter(s => s.code.startsWith("S0") || s.code===state.semaine);
+  const ab = S.map(s => (s.abonnes_reel||state.ex) ? s.abonnes : null);
+  const re = S.map(s => (s.reactions!=null && (s.reactions_reel||state.ex)) ? s.reactions : null);
+  const reelSeg = (ctx, arr) => S[ctx.p1DataIndex] && !arr[ctx.p1DataIndex] ? [6,5] : undefined;
+  mk("c-semaines", {
+    data:{ labels:S.map(s=>s.libelle), datasets:[
+      {type:"line", label:"Abonnés", data:ab, yAxisID:"y", borderColor:C.orange, backgroundColor:C.orange, tension:.3, borderWidth:3,
+        pointRadius:S.map(s=>s.abonnes_reel?5:4), pointBackgroundColor:S.map(s=>s.abonnes_reel?C.orange:"#fff"), pointBorderColor:S.map(s=>s.abonnes_reel?C.orange:C.ex),
+        segment:{borderDash: c => S[c.p1DataIndex].abonnes_reel ? undefined : [6,5], borderColor: c => S[c.p1DataIndex].abonnes_reel ? C.orange : C.ex}, spanGaps:true},
+      {type:"bar", label:"Réactions (exemple)", data:re, yAxisID:"y1", backgroundColor:"rgba(58,90,114,.18)", borderColor:C.acier, borderWidth:1.5, borderDash:[4,3], borderRadius:6, maxBarThickness:38}
+    ]},
+    options:{ maintainAspectRatio:false, interaction:{mode:"index",intersect:false},
+      plugins:{ tooltip:{callbacks:{label: c => { const s=S[c.dataIndex]; const reel = c.datasetIndex===0 ? s.abonnes_reel : s.reactions_reel; return `${c.dataset.label.replace(" (exemple)","")} : ${fmt(c.raw)}${reel?"":" (exemple)"}`; }}}},
+      scales:{ y:{position:"left", title:{display:true,text:"Abonnés"}, grid:{color:C.filet}, ticks:{callback:v=>fmt(v)}},
+               y1:{position:"right", title:{display:true,text:"Réactions"}, grid:{display:false}, beginAtZero:true},
+               x:{grid:{display:false}}}}
+  });
+}
+
+function chartPiliers(){
+  const P = posts();
+  const piliers = D.piliers.filter(p => state.pilier==="tout" || p.nom===state.pilier);
+  mk("c-piliers", {
+    type:"bar",
+    data:{ labels:piliers.map(p=>p.nom), datasets:[
+      {label:"Posts prévus", data:piliers.map(p=>P.filter(x=>x.pilier===p.nom).length), backgroundColor:C.nuit, borderRadius:6, yAxisID:"y", maxBarThickness:34},
+      {label:"Part visée (%)", data:piliers.map(p=>p.part_cible), backgroundColor:C.orange, borderRadius:6, yAxisID:"y1", maxBarThickness:34},
+      ...(state.ex ? [{label:"Réactions médianes (exemple)", data:piliers.map(p=>p.reactions_medianes_exemple), backgroundColor:"rgba(154,166,178,.35)", borderColor:C.ex, borderWidth:1.5, borderDash:[4,3], borderRadius:6, yAxisID:"y1", maxBarThickness:34}] : [])
+    ]},
+    options:{ maintainAspectRatio:false,
+      scales:{ y:{beginAtZero:true, ticks:{stepSize:1}, title:{display:true,text:"Posts"}, grid:{color:C.filet}},
+               y1:{beginAtZero:true, position:"right", grid:{display:false}, title:{display:true,text:"% / réactions"}}, x:{grid:{display:false}}}}
+  });
+}
+
+function chartStatuts(){
+  const P = posts(), keys = ["publie","pret","a_rediger"];
+  mk("c-statuts", {
+    type:"doughnut",
+    data:{ labels:keys.map(k=>ST[k]), datasets:[{data:keys.map(k=>P.filter(p=>p.statut===k).length), backgroundColor:[C.acier,C.vert,C.ambre], borderWidth:0}]},
+    options:{ maintainAspectRatio:false, cutout:"62%", plugins:{legend:{position:"bottom"}}}
+  });
+}
+
+function concurrents(){
+  const Cc = D.concurrents;
+  const col = Cc.map(c => c.nous ? C.orange : C.nuit);
+  mk("c-conc-ab", {
+    type:"bar",
+    data:{ labels:Cc.map(c=>c.nom.replace(" Logistics","")), datasets:[{label:"Abonnés (échelle logarithmique)", data:Cc.map(c=>c.abonnes), backgroundColor:col, borderRadius:6, maxBarThickness:44}]},
+    options:{ maintainAspectRatio:false, plugins:{tooltip:{callbacks:{label:c=>`${fmt(c.raw)} abonnés (${Cc[c.dataIndex].reseau})`}}},
+      scales:{ y:{type:"logarithmic", ticks:{callback:v=>[100,1000,10000,100000].includes(v)?fmt(v):""}, grid:{color:C.filet}}, x:{grid:{display:false}}}}
+  });
+  mk("c-conc-rythme", {
+    type:"bar",
+    data:{ labels:Cc.map(c=>c.nom.replace(" Logistics","")), datasets:[{label:"Publications par semaine", data:Cc.map(c=>c.publications_semaine), backgroundColor:col, borderRadius:6, maxBarThickness:44}]},
+    options:{ maintainAspectRatio:false, scales:{ y:{beginAtZero:true, grid:{color:C.filet}}, x:{grid:{display:false}}}}
+  });
+  document.getElementById("conc").innerHTML = Cc.map(c => `<div class="cc ${c.nous?"nous":""}">
+    <div class="nm">${c.nom}</div><div class="ab">${fmt(c.abonnes)}</div><div class="rs">abonnés ${c.reseau}</div>
+    <div class="rt"><b>${fmt1(c.publications_semaine)}</b> publ./semaine${c.reactions_medianes!=null?` · <b>${c.reactions_medianes}</b> réactions médianes`:""}</div>
+    <div class="lc">${c.lecture}</div></div>`).join("");
+}
+})();
+</script>
+</body>
+</html>

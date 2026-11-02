@@ -1,0 +1,339 @@
+{
+  "_lisez_moi": "Fichier de données du tableau de bord. Chaque valeur porte \"reel\": true (relevé vérifiable) ou false (exemple, à remplacer). Mettre à jour ce fichier suffit : la page se recalcule seule.",
+  "mise_a_jour": "02/11/2026",
+  "liens": {
+    "page_linkedin": "https://www.linkedin.com/company/proline-logistics-ci",
+    "site": "https://prolinelogistic.com",
+    "audit": "https://docs.google.com/presentation/d/1C25pJHZiKVPMZY_ej6sM1HA_Ud6b7EOOydEnveAWgE8/edit",
+    "contact": "mailto:info@prolinelogistic.com"
+  },
+  "acces_administrateur": false,
+  "chiffres_cles": {
+    "abonnes": {
+      "valeur": 3519,
+      "reel": true,
+      "note": "Page publique, relevé du 02/11/2026 (3 517 au 28/10/2026)"
+    },
+    "publications_du_mois": {
+      "valeur": 0,
+      "planifiees": 12,
+      "reel": true,
+      "note": "Aucune publication relevée sur 6 mois au 28/10/2026 ; 12 prévues en novembre"
+    },
+    "reactions_medianes": {
+      "valeur": 14,
+      "reel": false,
+      "note": "Exemple : lisible après les premières publications"
+    },
+    "taux_engagement": {
+      "valeur": 2.1,
+      "unite": "%",
+      "reel": false,
+      "note": "Exemple : nécessite l'accès administrateur (impressions)"
+    },
+    "demandes_devis": {
+      "valeur": 3,
+      "reel": false,
+      "note": "Exemple : à compter chaque semaine dans la boîte mail commerciale"
+    },
+    "demandes_visite": {
+      "valeur": 1,
+      "reel": false,
+      "note": "Exemple : à compter chaque semaine dans la boîte mail commerciale"
+    }
+  },
+  "objectifs_30_jours": [
+    {
+      "libelle": "Publications LinkedIn",
+      "depart": 0,
+      "cible": 8,
+      "actuel": 0,
+      "reel": true
+    },
+    {
+      "libelle": "Réactions médianes",
+      "depart": null,
+      "cible": 20,
+      "actuel": 14,
+      "reel": false
+    },
+    {
+      "libelle": "Abonnés LinkedIn",
+      "depart": 3517,
+      "cible": 3700,
+      "actuel": 3519,
+      "reel": true
+    },
+    {
+      "libelle": "Offres d'emploi publiées",
+      "depart": 0,
+      "cible": 1,
+      "actuel": 0,
+      "reel": true
+    }
+  ],
+  "semaines": [
+    {
+      "code": "S0",
+      "libelle": "Relevé 28/10",
+      "abonnes": 3517,
+      "abonnes_reel": true,
+      "reactions": null,
+      "reactions_reel": true
+    },
+    {
+      "code": "S0b",
+      "libelle": "Relevé 02/11",
+      "abonnes": 3519,
+      "abonnes_reel": true,
+      "reactions": null,
+      "reactions_reel": true
+    },
+    {
+      "code": "S1",
+      "libelle": "Sem. 1 (3-5/11)",
+      "abonnes": 3538,
+      "abonnes_reel": false,
+      "reactions": 38,
+      "reactions_reel": false
+    },
+    {
+      "code": "S2",
+      "libelle": "Sem. 2 (10-12/11)",
+      "abonnes": 3571,
+      "abonnes_reel": false,
+      "reactions": 52,
+      "reactions_reel": false
+    },
+    {
+      "code": "S3",
+      "libelle": "Sem. 3 (17-19/11)",
+      "abonnes": 3612,
+      "abonnes_reel": false,
+      "reactions": 61,
+      "reactions_reel": false
+    },
+    {
+      "code": "S4",
+      "libelle": "Sem. 4 (24-26/11)",
+      "abonnes": 3655,
+      "abonnes_reel": false,
+      "reactions": 74,
+      "reactions_reel": false
+    }
+  ],
+  "piliers": [
+    {
+      "nom": "Capacités",
+      "libelle": "Capacités et implantations",
+      "part_cible": 25,
+      "reactions_medianes_exemple": 18
+    },
+    {
+      "nom": "Expertise",
+      "libelle": "Expertise métier",
+      "part_cible": 25,
+      "reactions_medianes_exemple": 12
+    },
+    {
+      "nom": "Fiabilité",
+      "libelle": "Fiabilité et conformité",
+      "part_cible": 25,
+      "reactions_medianes_exemple": 11
+    },
+    {
+      "nom": "Équipes",
+      "libelle": "Équipes et terrain",
+      "part_cible": 15,
+      "reactions_medianes_exemple": 24
+    },
+    {
+      "nom": "Jalons",
+      "libelle": "Jalons et références",
+      "part_cible": 10,
+      "reactions_medianes_exemple": 16
+    }
+  ],
+  "posts": [
+    {
+      "date": "2026-11-03",
+      "semaine": "S1",
+      "jour": "mar. 3/11",
+      "heure": "8 h 30",
+      "pilier": "Capacités",
+      "titre": "Quatre parcs, là où passent vos flux",
+      "statut": "pret",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 21
+    },
+    {
+      "date": "2026-11-04",
+      "semaine": "S1",
+      "jour": "mer. 4/11",
+      "heure": "8 h 30",
+      "pilier": "Expertise",
+      "titre": "FIFO ou FEFO : la question à poser",
+      "statut": "pret",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 9
+    },
+    {
+      "date": "2026-11-05",
+      "semaine": "S1",
+      "jour": "jeu. 5/11",
+      "heure": "8 h 30",
+      "pilier": "Équipes",
+      "titre": "Le sérieux, au quotidien",
+      "statut": "pret",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 8
+    },
+    {
+      "date": "2026-11-10",
+      "semaine": "S2",
+      "jour": "mar. 10/11",
+      "heure": "8 h 30",
+      "pilier": "Fiabilité",
+      "titre": "Votre stock, compté deux fois",
+      "statut": "pret",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 14
+    },
+    {
+      "date": "2026-11-11",
+      "semaine": "S2",
+      "jour": "mer. 11/11",
+      "heure": "8 h 30",
+      "pilier": "Expertise",
+      "titre": "Charge hors-gabarit : cinq questions",
+      "statut": "a_rediger",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 15
+    },
+    {
+      "date": "2026-11-12",
+      "semaine": "S2",
+      "jour": "jeu. 12/11",
+      "heure": "8 h 30",
+      "pilier": "Fiabilité",
+      "titre": "Hydrocarbures, suivis au GPS",
+      "statut": "pret",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 23
+    },
+    {
+      "date": "2026-11-17",
+      "semaine": "S3",
+      "jour": "mar. 17/11",
+      "heure": "8 h 30",
+      "pilier": "Capacités",
+      "titre": "AeroHub : 7 000 places palettes",
+      "statut": "a_rediger",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 18
+    },
+    {
+      "date": "2026-11-18",
+      "semaine": "S3",
+      "jour": "mer. 18/11",
+      "heure": "8 h 30",
+      "pilier": "Expertise",
+      "titre": "Externaliser sa logistique",
+      "statut": "a_rediger",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 12
+    },
+    {
+      "date": "2026-11-19",
+      "semaine": "S3",
+      "jour": "jeu. 19/11",
+      "heure": "8 h 30",
+      "pilier": "Équipes",
+      "titre": "Nos chauffeurs, ou une offre d'emploi",
+      "statut": "a_rediger",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 31
+    },
+    {
+      "date": "2026-11-24",
+      "semaine": "S4",
+      "jour": "mar. 24/11",
+      "heure": "8 h 30",
+      "pilier": "Capacités",
+      "titre": "Entrez dans notre entrepôt",
+      "statut": "pret",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 17
+    },
+    {
+      "date": "2026-11-25",
+      "semaine": "S4",
+      "jour": "mer. 25/11",
+      "heure": "8 h 30",
+      "pilier": "Fiabilité",
+      "titre": "QHSE et démarche ISO",
+      "statut": "a_rediger",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 11
+    },
+    {
+      "date": "2026-11-26",
+      "semaine": "S4",
+      "jour": "jeu. 26/11",
+      "heure": "8 h 30",
+      "pilier": "Jalons",
+      "titre": "De 6 000 m² à quatre parcs",
+      "statut": "pret",
+      "lien": "",
+      "reactions": null,
+      "reactions_exemple": 16
+    }
+  ],
+  "concurrents": [
+    {
+      "nom": "Proline Logistics",
+      "nous": true,
+      "abonnes": 3517,
+      "reseau": "LinkedIn",
+      "publications_semaine": 0,
+      "reactions_medianes": null,
+      "lecture": "Une base solide, aucune prise de parole relevée."
+    },
+    {
+      "nom": "AGL",
+      "abonnes": 87278,
+      "reseau": "Facebook",
+      "publications_semaine": 6,
+      "reactions_medianes": 96,
+      "lecture": "Une machine éditoriale : équipes, engins, offres d'emploi."
+    },
+    {
+      "nom": "LTA",
+      "abonnes": 566,
+      "reseau": "LinkedIn",
+      "publications_semaine": 0.3,
+      "reactions_medianes": 6,
+      "lecture": "Deux publications en juin, des moments d'équipe."
+    },
+    {
+      "nom": "OTL",
+      "abonnes": 313,
+      "reseau": "LinkedIn",
+      "publications_semaine": 0.2,
+      "reactions_medianes": 20,
+      "lecture": "Une offre d'emploi en juillet, rien d'autre."
+    }
+  ],
+  "concurrents_source": "Pages publiques relevées le 28/10/2026. Chez AGL, abonnés et rythme sont ceux de la page Facebook (LinkedIn non relevé)."
+}
