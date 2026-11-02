@@ -21,7 +21,7 @@
       "note": "Aucune publication relevée sur 6 mois au 28/10/2026 ; 12 prévues en novembre"
     },
     "reactions_medianes": {
-      "valeur": 14,
+      "valeur": 15.5,
       "reel": false,
       "note": "Exemple : lisible après les premières publications"
     },
@@ -54,7 +54,7 @@
       "libelle": "Réactions médianes",
       "depart": null,
       "cible": 20,
-      "actuel": 14,
+      "actuel": 15.5,
       "reel": false
     },
     {
